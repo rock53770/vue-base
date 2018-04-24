@@ -1,0 +1,44 @@
+﻿.margin(@n, @type: t) when (@n > 0) {
+    .margin((@n - 1), @type);
+    & when (@type = t) {
+        @path: top;
+        .m@{type}@{n} {
+            margin-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = r) {
+        @path: right;
+        .m@{type}@{n} {
+            margin-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = b) {
+        @path: bottom;
+        .m@{type}@{n} {
+            margin-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = l) {
+        @path: left;
+        .m@{type}@{n} {
+            margin-@{path}: (1px * @n) !important;
+        }
+    }
+}
+
+.margin(40, t);
+.margin(40, r);
+.margin(40, b);
+.margin(40, l);
+
+.mt0   {margin-top: 0 !important;}
+
+.mc    { margin: 0 auto !important; }
+.m0    { margin: 0 !important; }
+
+.mlr5  { margin: 0 .05rem !important; }
+.mlr10 { margin: 0 .10rem !important; }
+.mlr15 { margin: 0 .15rem !important; }
+.mlr20 { margin: 0 .20rem !important; }
+.mlr25 { margin: 0 .25rem !important; }
+.mlr30 { margin: 0 .30rem !important; }

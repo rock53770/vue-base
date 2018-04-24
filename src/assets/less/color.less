@@ -1,0 +1,45 @@
+﻿// 字体颜色
+.cl-white  { color: #fff !important; }
+.cl-6d6d6d {color: #6d6d6d !important;}
+.cl-ededed {color: #ededed !important;}
+.cl-b0b0b0 {color: #b0b0b0 !important;}
+.cl-orange { color: @color-orange !important; }
+.cl-blue   { color: @color-blue !important; }
+.cl-gray   { color: @color-gray !important; }
+.cl-dgray  { color: @color-dgray !important; }
+.cl-lgray  { color: @color-lgray !important; }
+.cl-red    { color: @color-red !important; }
+.cl-black  { color: @color-black !important; }
+.cl-order  { color: @color-order !important; }
+
+// 背景颜色值定义
+.bg-no     { background: none !important; }
+.bg-white  { background: #fff !important; }
+.bg-orange { background: @color-orange !important; }
+.bg-blue   { background: @color-blue !important; }
+.bg-gray   { background: @color-gray !important; }
+.bg-dgray  { background: @color-dgray !important; }
+.bg-lgray  { background: @color-lgray !important; }
+.bg-red    { background: @color-red !important; }
+.bg-black  { background: @color-black !important; }
+.bg-order  { background: @color-order !important; }
+.bg-f6f6f6 {background: #f6f6f6 !important;}
+.bg-b0b0b0 {background: #b0b0b0 !important;}
+
+
+// icon color
+.color-icon(@color) {
+    &:before {
+        color: @color !important;
+    }
+}
+.ci-white  { .color-icon(@color: @color-white); }
+.ci-black  { .color-icon(@color: @color-black); }
+.ci-blue   { .color-icon(@color: @color-blue); }
+.ci-red    { .color-icon(@color: @color-red); }
+.ci-orange { .color-icon(@color: @color-orange); }
+.ci-gray   { .color-icon(@color: @color-gray); }
+.ci-dgray  { .color-icon(@color: @color-dgray); }
+.ci-black  { .color-icon(@color: @color-black); }
+.ci-order  { .color-icon(@color: @color-order); }
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>YHOUSE悦会</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="「YHOUSE」，我们是一款城市精英首选的精品休闲娱乐与创意美食预订APP。在这里，从周一到周五的创意美食，周六周日的炫酷活动体验，我们提供一站式的本地与目的地出行城市“吃喝玩乐精致生活”预订服务。还不快来下载我们，与10,000,000与你一样喜爱高品质生活的城市精英，共同开启属于少数人的轻奢生活方式。" />
+<link rel="stylesheet" href="css/reset.css">
+<!-- <link rel="stylesheet" href="css/index.css"> -->
+<style>
+.floor2{margin:.3rem 0.34rem; text-align:center; color:#fff; font-size:30px;  height:4.28rem; }
+.floor2  .cont{height:100%; box-sizing:border-box; padding-top:0.52rem; background:rgba(0,0,0,0.4); background-size: 100% 100%; font-size: 14px;}
+.floor2  .hostname{height:20px; line-height:20px; }
+.floor2  .mealname{max-height: 44px; font-size:1pc; font-weight: 700}
+.floor2  .desc{line-height: 23px; height: 23px;}
+.floor2  .price{position: absolute; bottom:40px; width:100%;font-weight: 700}
+.floor2  .address{position: absolute; bottom:23px; width: 100%;}
+.floor2  .address i{font-style: normal; }
+.floor2  .address b{font-weight: normal;}
+
+.slide-wrap{display:block; height:100%; position: relative; overflow:hidden;}
+.slide-wrap .slide{height:100%;}
+.slide-wrap .slide-list{height:100%; position: relative; float:left;}
+
+.slide-wrap .slide-indicators{width:100%; position:absolute; bottom:0; }
+.slide-wrap .slide-indicators div{height:12px;  display:-webkit-box; -webkit-box-pack:center;}
+.slide-wrap .slide-indicators p{width:6px; height:6px; background:#000; border-radius: 50%; margin-right:6px;}
+.slide-wrap .slide-indicators p:last-child{margin-right:0;}
+.slide-wrap .slide-indicators p.active{ background:#ccc;}
+.bmw{height:7.46rem; margin:0 .34rem;}
+.bmw .slide-indicators{bottom:38%;}
+img{width:100%;}
+[v-cloak] { display: none }
+</style>
+<script>
+(function(){function e(){var f=document.documentElement.clientWidth*100/750;window.fontSize=f;document.querySelector("html").style.fontSize=f+"px"}e();window.addEventListener("resize",e)})();
+</script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+	<div class="floor2">
+        <slide class="slide-wrap" :slidelist="items" :options="{curIndex:0, speed:300, auto:0,showIndicators:1, callback:callback, afterTouchStop:0}">
+            <div v-for="i in items" class="slide-list"  >
+                <img data-src="{{i.picUrl}}">
+                <div class="cont">
+                    <p class="hostname" v-text="i.hostName"></p>
+                    <p class="mealname" v-text="i.title" v-if="i.title"></p>
+                    <p class="desc" v-text="i.description" v-if="i.description"></p>
+                    <p class="price" v-text="i.price" v-if="i.price"></p>
+                    <p class="address">
+                        <b v-if="i.districtName" v-text="i.districtName"></b>
+                        <i v-if="i.distance" v-text="&nbsp;|&nbsp;+ i.distance"></i>
+                    </p>
+                </div>
+            </div>
+        </slide>
+    </div>
+    <!-- <div v-if="a"> -->
+    	<img :src="'http://p.yhres.com/event/2016/04/26/156667_'+aa+'.jpg'" alt="">
+    <!-- </div> -->
+</div>
+</body>
+<script src="js/vue.dev.js"></script>
+<script src="js/vue-slide.js"></script>
+<script>
+(function(){
+document.addEventListener("DOMContentLoaded",start,false);
+function start(){
+    var vueData = {
+        el: "#wrap",
+        data: {
+            items:[],
+            aa:1456727194087
+        },
+        created:function(){
+        	
+        },
+        ready:function(){
+        	var self = this;
+        	setTimeout(function(){
+        		self.items = [{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"海湾旅游区","eventType":0,"hostName":"丹尼尔马术俱乐部","isHaveEquities":0,"linkId":14160,"picUrl":"http://p.yhres.com/event/2016/04/26/156667_1456727194087.jpg-q75h","price":"免费","sort":1,"title":"驾驭优雅 去尽情探索最美野骑路线"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"","eventType":0,"hostName":"YHOUSE悦会","isHaveEquities":0,"linkId":14182,"picUrl":"http://p.yhres.com/event/2016/09/14/1473823047760158.jpg-q75h","price":"免费","sort":2,"title":"顶级牛排搭配3D全息投影的美食鉴赏"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"乔司  ","eventType":0,"hostName":"杭州爱马仕","isHaveEquities":0,"linkId":14162,"picUrl":"http://p.yhres.com/event/2016/03/30/156609_1459327274096.jpg-q75h","price":"免费","sort":3,"title":"马术体验 策马奔腾 共享人世繁华"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"","eventType":0,"hostName":"可游可乐户外","isHaveEquities":0,"linkId":14156,"picUrl":"http://p.yhres.com/event/2016/08/26/1472189069728300.jpg-q75h","price":"免费","sort":4,"title":"海岛露营 随意漫步三门岛"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"南山中心区","eventType":0,"hostName":"YHOUSE悦会","isHaveEquities":0,"linkId":14173,"picUrl":"http://p.yhres.com/event/2016/09/13/1473748023427503.jpg-q75h","price":"免费","sort":5,"title":"侧耳倾听马术故事 驰骋马背看秋日落叶"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"丰台其它","eventType":0,"hostName":"纵横马术","isHaveEquities":0,"linkId":14166,"picUrl":"http://p.yhres.com/event/2016/09/09/1473385765532998.jpg-q75h","price":"免费","sort":6,"title":"与马儿来一场亲密的户外活动 专业马术体验"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"高新园区","eventType":0,"hostName":"拖把儿","isHaveEquities":0,"linkId":14157,"picUrl":"http://p.yhres.com/event/2016/07/04/1467625511194881.jpg-q75h","price":"免费","sort":7,"title":"帆船体验 夏日出海新玩乐"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"西塔","eventType":0,"hostName":"拖把儿","isHaveEquities":0,"linkId":14161,"picUrl":"http://p.yhres.com/event/2016/06/27/1466993660468402.png-q75h","price":"免费","sort":8,"title":"自驾飞机遨游天际 沈阳飞行体验"},{"cuisineStyle":null,"dataType":1,"description":"","distance":"","districtName":"双流县其他  ","eventType":0,"hostName":"达根斯国际马术俱乐部","isHaveEquities":0,"linkId":14159,"picUrl":"http://p.yhres.com/event/2016/07/19/1468908845668541.jpg-q75h","price":"免费","sort":9,"title":"优雅生活从这里开始 马术体验 精致下午茶"}];
+
+        		//self.items.length = 2;
+        	},300);
+        },
+        methods: {
+            
+        }
+    };	
+    // Vue.config.devtools = true;
+    new Vue(vueData);
+}
+})();
+</script>
+</html>

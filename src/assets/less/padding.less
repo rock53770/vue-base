@@ -1,0 +1,48 @@
+﻿
+// padding: top,right,bottom,left
+// 1~40
+
+.padding(@n, @type: t) when (@n > 0) {
+    .padding((@n - 1), @type);
+    & when (@type = t) {
+        @path: top;
+        .p@{type}@{n} {
+            padding-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = r) {
+        @path: right;
+        .p@{type}@{n} {
+            padding-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = b) {
+        @path: bottom;
+        .p@{type}@{n} {
+            padding-@{path}: (1px * @n) !important;
+        }
+    }
+    & when (@type = l) {
+        @path: left;
+        .p@{type}@{n} {
+            padding-@{path}: (1px * @n) !important;
+        }
+    }
+}
+
+.padding(40, t);
+.padding(40, r);
+.padding(40, b);
+.padding(40, l);
+
+.p3    { padding: .03rem !important; }
+.p5    { padding: .05rem !important; }
+.p10   { padding: .10rem !important; }
+.p15   { padding: .15rem !important; }
+.p20   { padding: .20rem !important; }
+
+.plr5  { padding: 0 .05rem !important; }
+.plr10 { padding: 0 .10rem !important; }
+.plr15 { padding: 0 .15rem !important; }
+.plr20 { padding: 0 .20rem !important; }
+

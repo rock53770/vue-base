@@ -1,0 +1,185 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*禁掉input边框点击出现橘色线框*/
+    -webkit-user-select: ​ none;
+    /*禁掉文字的复制、复用*/
+}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+img {
+    vertical-align: bottom;
+    border: none;
+}
+
+i {
+    font-style: normal;
+}
+
+b {
+    font-weight: normal;
+}
+a {
+    text-decoration: none;
+}
+a:active,a:hover {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ul,ol,li {
+    list-style: none;
+   -webkit-padding-start: 0;/*谷歌浏览器默认有个-webkit-padding-start: 40px;*/
+}
+
+body {
+    color: #000;
+    font-size: 0.14rem;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+.fr {
+    float: right;
+    display: inline;
+}
+
+.fl {
+    float: left;
+    display: inline;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*@media screen and (max-width:320px){html{font-size:42.6666px}}
+@media screen and (min-width:321px) and (max-width:360px){html{font-size:48px}}
+@media screen and (min-width:361px) and (max-width:375px){html{font-size:50px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:55.2px}}
+@media screen and (min-width:415px) and (max-width:450px){html{font-size:60px}}
+@media screen and (min-width:451px) and (max-width:500px){html{font-size:66.666px}}
+@media screen and (min-width:501px) and (max-width:550px){html{font-size:73.333px}}
+@media screen and (min-width:551px) and (max-width:600px){html{font-size:80px}}
+@media screen and (min-width:601px) and (max-width:650px){html{font-size:86.666px}}
+@media screen and (min-width:651px) and (max-width:700px){html{font-size:93.333px}}
+@media screen and (min-width:701px) and (max-width:750px){html{font-size:100px}}
+@media screen and (min-width:751px){html{font-size:50px}}*/
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
+    display: block;
+}
+audio,canvas,progress,video {
+    display: inline-block; /* 1 */
+    vertical-align: baseline; /* 2 */
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden],
+template {
+    display: none;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+dfn {
+   font-style: italic;/*斜体*/
+}
+mark {
+    background: #ff0;
+    color: #000;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+pre {
+    overflow: auto;
+}
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button,input,optgroup,select,textarea {
+    color: inherit; /* 1 默认背景色  继承父节点*/
+    font: inherit; /* 2 */
+    margin: 0; /* 3 */
+    box-sizing: border-box;
+    outline: none;
+}
+button {
+    overflow: visible;
+}
+button,select {
+    text-transform: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    line-height: normal;
+    border: none;
+    padding: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+textarea {
+    overflow: auto;
+    resize:none;
+}
+

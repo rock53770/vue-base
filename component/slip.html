@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>YHOUSE悦会</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="「YHOUSE」" />
+<link rel="stylesheet" href="css/reset.css">
+<!-- <link rel="stylesheet" href="css/index.css"> -->
+<style>
+
+body,html {
+	height:100%;
+	font-size:20px
+}
+.wrap {
+	margin-top:20px
+}
+.wrap .slip-item {
+	height:70px;
+	border-bottom:1px solid red;
+	border-top:1px solid red;
+	margin-bottom:-1px;
+	position:relative;
+	overflow: hidden;
+	/*transition:height ease 5s*/
+}
+.wrap .slip-item .up {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	
+	z-index:2;
+	transition:all ease .5s;
+	background-color:#f66;
+}
+.wrap .slip-item .down {
+	position:absolute;
+	top:0;
+	right:0;
+	height:70px;
+	line-height:70px;
+	text-align:center;
+	z-index:1
+}
+.wrap .slip-item .down>div {
+	float:left;
+	width:60px;
+	height:70px;
+	line-height:70px
+}
+.wrap .slip-item .down .beizhu {
+	background-color:#ccc;
+}
+.wrap .slip-item .down .del {
+	background-color:red;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+.wrap .slip-leave-active {
+  transition: all ease .5s;
+  height: 0;
+  
+}
+.wrap .slip-enter-active {
+  transition: all ease .5s;
+  /*height: 0;*/
+  
+}
+.wrap .slip-enter {
+  height: 0;
+}
+.wrap .slip-move {
+  transition: transform 1s;
+}
+</style>
+<script>
+(function(){function e(){var f=document.documentElement.clientWidth*100/750;window.fontSize=f;document.querySelector("html").style.fontSize=f+"px"}e();window.addEventListener("resize",e)})();
+</script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+	<div>
+		<transition-group name="slip" tag="div">
+
+			<div class="slip-item"   v-for="(i,index) in items" :key="i.top" v-slip>
+				<div class="up" @click="upClick(i)">
+					<p v-text="i.top"></p>
+				</div>
+				<div class="down">
+					<div class="beizhu" @click="go(i)">备注</div>
+					<div class="del" @click="del(i,index)">删除</div>
+				</div>
+			</div>
+
+		</transition-group>
+	</div>
+	<div id="demo">
+	  <button v-on:click="tag()">
+	    Toggle
+	  </button>
+	  <transition name="fade">
+	    <p v-if="show">hello</p>
+	  </transition>
+	</div>
+</div>
+
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-slip.js"></script>
+<script>
+(function(){
+document.addEventListener("DOMContentLoaded",start,false);
+function start(){
+    var vueData = {
+        el: "#wrap",
+        data: {
+            items:[],
+            show: true
+        },
+        created:function(){
+        	console.log("父 created")
+        },
+        mounted:function(){
+        	console.log("父 mounted")
+        	var self = this;
+        	setTimeout(function(){
+        		self.items = [{top:111111111,botm:"删除"},{top:22222222,botm:"删除"},{top:333,botm:"删除"},{top:444,botm:"删除"},{top:555,botm:"删除"},{top:666,botm:"删除"},{top:777,botm:"删除"}];
+        	},300);
+        	// self.items = [{top:111111111,botm:"删除"},{top:22222222,botm:"删除"},{top:333,botm:"删除"},{top:444,botm:"删除"},{top:555,botm:"删除"},{top:666,botm:"删除"},{top:777,botm:"删除"},{top:888,botm:"删除"},{top:999,botm:"删除"},{top:101010,botm:"删除"},{top:111111,botm:"删除"},{top:121212,botm:"删除"}];
+        	
+        },
+        methods: {
+            upClick: function(i){
+				alert(i.top);
+			},
+			go:function(i){
+				alert(i.top);
+			},
+			del:function(i,index){
+
+				this.items.splice(index,1);
+			},
+			tag:function(){
+				this.show = !this.show;
+				// this.items.push({top:1313,botm:"删除"});
+				// this.items.push({top:1414,botm:"删除"});
+				// this.items.sort(function(a,b){
+				// 	return Math.random()-0.5;
+				// });
+				this.items.splice(0,1);
+			}
+        }
+    };	
+    new Vue(vueData);
+}
+})();
+</script>
+</html>

@@ -1,0 +1,10 @@
+﻿.font-loop(@n) when(@n > 9) {
+    .font-loop((@n - 1));
+    .ft@{n} {
+        .font-size(@n);
+    }
+}
+
+.font-loop(30);//.ft10,.ft11,.....,ft30
+.ft0 { .font-size(0); }
+.ft35 { .font-size(35); }

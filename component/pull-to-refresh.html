@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>YHOUSE悦会</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="「YHOUSE」，我们是一款城市精英首选的精品休闲娱乐与创意美食预订APP。在这里，从周一到周五的创意美食，周六周日的炫酷活动体验，我们提供一站式的本地与目的地出行城市“吃喝玩乐精致生活”预订服务。还不快来下载我们，与10,000,000与你一样喜爱高品质生活的城市精英，共同开启属于少数人的轻奢生活方式。" />
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/pull-to-refresh.css">
+<!-- <link rel="stylesheet" href="css/framework7.ios.css"> -->
+<style>
+/*html,body,.wrap,.page{height:100%; width:100%; position:relative; }*/
+
+.page-content {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  /*height: 100%;*/
+  position: relative;
+  z-index: 1;
+}
+.list-block {
+    font-size: 17px
+}
+
+.list-block ul {
+    background: #fff;
+    border-top: 1px solid #c8c7cc;
+    border-bottom: 1px solid #c8c7cc;
+}
+.list-block li {
+    display:flex;
+    align-items:center;
+    margin-left:10px;
+}
+.list-block li .item-inner{
+    margin-left:20px;
+    border-bottom: 1px solid #c8c7cc;
+    width:100%;
+    padding-top:10px;
+    padding-bottom:10px;
+    align-self:stretch;
+}
+.list-block li:last-child .item-inner{
+    border-bottom: none;
+}
+.list-block li .item-media{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+}
+
+img{width:100%;}
+[v-cloak] { display: none }
+</style>
+<script>
+(function(){function e(){var f=document.documentElement.clientWidth*100/750;window.fontSize=f;document.querySelector("html").style.fontSize=f+"px"}e();window.addEventListener("resize",e)})();
+</script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="page ">
+        <!-- <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left"></div>
+            <div class="center" style="left: 0px;">Pull To Refresh</div>
+            <div class="right"></div>
+          </div>
+        </div> -->
+      <pull v-on:refresh="refresh" dis="44">
+          <div class="list-block">
+              <ul>
+                  <li class="item-content" v-for="i in items" @click="click(i)">
+                    <div class="item-media"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=316593394,2050793122&fm=80&w=179&h=119&img.JPEG" width="44"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title" v-text="i.tit"></div>
+                      </div> 
+                      <div class="item-subtitle" v-text="i.subtit"></div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="list-block-label">
+                  <p>Just pull page down to let the magic happen.</p>
+                </div>
+            </div>
+      </pull>
+  </div>
+</div>
+</body>
+<script src="js/vue.dev.js"></script>
+<script type="text/x-template" id="pull">
+  <div class="page-content pull-to-refresh-no-navbar pull-to-refresh-content">
+    <div class="pull-to-refresh-layer">
+      <div class="preloader"></div>
+      <div class="pull-to-refresh-arrow"></div>
+    </div>
+    <slot></slot>
+  </div>
+</script>
+<script src="js/vue-pull.js"></script>
+<script>
+(function(){
+document.addEventListener("DOMContentLoaded",start,false);
+function start(){
+    var vueData = {
+        el: "#wrap",
+        data: {
+            items:[],
+        },
+        created:function(){
+        	
+        },
+        ready:function(){
+        	this.items = [
+                {tit:"111",subtit:"aaaaaaa"},
+                {tit:"222",subtit:"bbbbbbbb"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"},
+                {tit:"333",subtit:"cccccccccc"}
+            ];
+        },
+        methods: {
+            click:function(i){
+                console.log(i.tit);
+            },
+            refresh:function(done){
+                var self = this;
+                setTimeout(function(){
+                    // self.items = [
+                    //     {tit:"222",subtit:"bbbbbbbb"},
+                    //     {tit:"444",subtit:"ddd"},
+                    //     {tit:"111",subtit:"aaaaaaa"},
+                    //     {tit:"333",subtit:"cccccccccc"}
+                    // ];
+                    self.items.push({tit:"444",subtit:"ddd"});
+                    done();
+                },2000);
+            }
+        }
+    };	
+    // Vue.config.devtools = true;
+    new Vue(vueData);
+}
+})();
+</script>
+</html>

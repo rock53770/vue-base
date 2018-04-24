@@ -1,0 +1,108 @@
+﻿
+.fl { float: left; }
+.fr { float: right; }
+.clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.of-hide{
+  overflow:hidden;
+}
+
+.pos-f { position: fixed !important; }
+.pos-a { position: absolute !important; }
+.pos-r { position: relative !important; }
+.pos-i { position: inherit !important; }
+
+.fw-n { font-weight: normal !important; }
+.fw-b { font-weight: bold !important; }
+
+.ta-c { text-align: center !important; }
+.ta-l { text-align: left !important; }
+.ta-r { text-align: right !important; }
+
+.oneline   { white-space: nowrap !important; } // 文字保持一行不换行
+.wordbreak { // 强行换行
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.bdr-3  { border-radius:3px; }
+.bdr-5  { border-radius:5px; }
+.bdr-10 { border-radius:10px; }
+
+
+.ellipsis  { .ellipsis(); } // 单行文字显示省略号...
+.border-half{
+  .border-half();
+}
+.bgc-fff{.bgc(#fff);}
+
+
+
+
+
+.font-size(@size: 14) {
+  font-size: @size/100rem;
+}
+
+// 文字超出显示....
+// 一行和多行
+.ellipsis() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.line-clamp(@line: 3) {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.border-half(@color: gray) {
+  position: relative;
+  &:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid @color;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+  }
+}
+
+.bgc(@color:#f6f66f){
+  background-color: @color !important;
+}
+// 背景图片
+.bg (@site: 0 0, @scale: 0, @image: icons_back, @size:180){
+  background: url("../images/@{image}.png") no-repeat @site;
+  & when (@scale > 0) {
+    background-size: auto (@size * @scale) * 1/10rem;
+    -webkit-background-size: auto (@size * @scale) * 1/10rem;
+  }
+  & when (@scale = 0) {
+    background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+  }
+}
