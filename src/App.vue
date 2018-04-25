@@ -45,8 +45,9 @@ export default {
     //   emulateJSON:true
     // }).then((res)=>{
     //     // res=res.body;
-    //     console.log(res);  
+    //     console.log(res);
     // });
+    console.log(111)
   },
   mounted(){
     var oHeader = document.getElementById("header");
