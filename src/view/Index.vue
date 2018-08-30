@@ -25,6 +25,9 @@
         <li>
           <router-link to="/upload" class="ft20">图片上传</router-link>
         </li>
+        <li>
+          <router-link to="/clipboard" class="ft20">Clipboard</router-link>
+        </li>
         <li>5</li>
         <li>6</li>
         <li>7</li>

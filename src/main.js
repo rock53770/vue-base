@@ -9,6 +9,11 @@ Vue.config.productionTip = false
 import './assets/main.less'
 import VueResource from 'vue-resource'
  
+
+import VueClipboard from 'vue-clipboard2'
+VueClipboard.config.autoSetContainer = true // add this line
+Vue.use(VueClipboard)
+
 Vue.use(VueResource)
 new Vue({
   el: '#app',
