@@ -5,6 +5,8 @@ import Classify from '@/view/Classify'
 import Info from '@/view/Info'
 import Date from '@/view/Date'
 import Upload from '@/view/Upload'
+import clipboard from '@/view/clipboard'
+
 
 Vue.use(Router)
 const router = new Router({
@@ -30,7 +32,12 @@ const router = new Router({
       path: '/upload',
       name: 'upload',
       component: Upload
+    },{
+      path: '/clipboard',
+      name: 'clipboard',
+      component: clipboard
     }
+
   ]
 })
 router.beforeEach((to, from, next) => {
